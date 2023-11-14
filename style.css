@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #ccc;
+    background-color: rgb(34, 34, 34);
 }
 
 .container {
@@ -11,12 +11,26 @@ body {
     border-radius: 5px;
 }
 
+span{
+    color:white;
+    font-weight: bold;
+}
+h1{
+    color:white;
+    font-weight: bold;
+}
+
+#result{
+ color:white;
+ font-weight: bold;
+}
+
 .board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-top: 20px;
     opacity: 0;
-    animation: fadeInScale 1s forwards;
+    animation: fadeInScale 2s forwards;
 }
 
 .win-counters-container {
@@ -24,14 +38,14 @@ body {
     justify-content: space-between;
 }
 
-.win-counter-x{
+#win-counter-x{
     font-weight: bold;
-    color: red;
+    color: rgb(231, 55, 55);
 }
 
-.win-counter-o{
+#win-counter-o{
     font-weight: bold;
-    color: blue;
+    color: rgb(71, 71, 209);
 }
 
 @keyframes fadeInScale {
@@ -48,13 +62,14 @@ body {
 .cell {
     width: calc(100px - 2px);
     height: calc(100px - 2px);
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(56, 56, 56);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 .center {

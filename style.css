@@ -19,6 +19,21 @@ body {
     animation: fadeInScale 1s forwards;
 }
 
+.win-counters-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.win-counter-x{
+    font-weight: bold;
+    color: red;
+}
+
+.win-counter-o{
+    font-weight: bold;
+    color: blue;
+}
+
 @keyframes fadeInScale {
     0% {
         opacity: 0;

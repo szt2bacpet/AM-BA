@@ -1,7 +1,13 @@
 const cells = document.querySelectorAll('.cell');
 const resultDiv = document.getElementById('result');
+const winCounterX = document.getElementById('win-counter-x');
+const winCounterO = document.getElementById('win-counter-o');
+const resetScoreButton = document.getElementById('reset-score-button');
+
 let currentPlayer = 'X';
 let gameOver = false;
+let winsX = 0;
+let winsO = 0;
 
 function adjustBoardSize() {
     const board = document.querySelector('.board');
@@ -18,6 +24,7 @@ function playerMove(cell) {
         cell.innerText = currentPlayer;
         if (checkWin(currentPlayer)) {
             resultDiv.innerText = `Játékos ${currentPlayer} nyert!`;
+            updateWinCounter(currentPlayer);
             gameOver = true;
         } else if ([...cells].every(cell => cell.innerText !== '')) {
             resultDiv.innerText = 'Döntetlen!';
@@ -55,4 +62,36 @@ function checkWin(player) {
         const [a, b, c] = combination;
         return cells[a].innerText === player && cells[b].innerText === player && cells[c].innerText === player;
     });
+}
+
+const newGameButton = document.getElementById('new-game-button');
+
+newGameButton.addEventListener('click', startNewGame);
+resetScoreButton.addEventListener('click', resetScore);
+
+function startNewGame() {
+    cells.forEach(cell => {
+        cell.innerText = '';
+    });
+
+    resultDiv.innerText = '';
+    gameOver = false;
+    currentPlayer = 'X';
+}
+
+function updateWinCounter(player) {
+    if (player === 'X') {
+        winsX++;
+        winCounterX.innerText = `X nyert: ${winsX}`;
+    } else {
+        winsO++;
+        winCounterO.innerText = `O nyert: ${winsO}`;
+    }
+}
+
+function resetScore() {
+    winsX = 0;
+    winsO = 0;
+    winCounterX.innerText = `X nyert: ${winsX}`;
+    winCounterO.innerText = `O nyert: ${winsO}`;
 }

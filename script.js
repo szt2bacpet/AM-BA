@@ -23,7 +23,7 @@ function playerMove(cell) {
     if (!cell.innerText && !gameOver) {
         cell.innerText = currentPlayer;
         if (checkWin(currentPlayer)) {
-            resultDiv.innerText = `Játékos ${currentPlayer} nyert!`;
+            resultDiv.innerText = `${currentPlayer} nyert!`;
             updateWinCounter(currentPlayer);
             gameOver = true;
         } else if ([...cells].every(cell => cell.innerText !== '')) {
